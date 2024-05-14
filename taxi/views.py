@@ -1,13 +1,19 @@
 from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import generic
-from django.contrib.auth.mixins import LoginRequiredMixin
 
+from .forms import (
+    DriverLicenseUpdateForm,
+    ManufacturerSearchForm,
+    DriverCreationForm,
+    DriverSearchForm,
+    CarSearchForm,
+    CarForm,
+)
 from .models import Driver, Car, Manufacturer
-from .forms import DriverCreationForm, DriverLicenseUpdateForm, CarForm, ManufacturerSearchForm, DriverSearchForm, \
-    CarSearchForm
 
 
 @login_required
