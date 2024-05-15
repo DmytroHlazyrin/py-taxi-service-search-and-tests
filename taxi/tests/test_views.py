@@ -16,19 +16,19 @@ class PublicTest(TestCase):
         """Test the publicly available manufacturer pages"""
         res = self.client.get(MANUFACTURER_URL)
 
-        self.assertNotEqual(res.status_code, 200)
+        self.assertEqual(res.status_code, 302)
 
     def test_login_required_for_driver_list(self) -> None:
         """Test the publicly available driver pages"""
         res = self.client.get(DRIVER_URL)
 
-        self.assertNotEqual(res.status_code, 200)
+        self.assertEqual(res.status_code, 302)
 
     def test_login_required_for_car_list(self) -> None:
         """Test the publicly available car pages"""
         res = self.client.get(CAR_URL)
 
-        self.assertNotEqual(res.status_code, 200)
+        self.assertEqual(res.status_code, 302)
 
 
 class PrivateTest(TestCase):
